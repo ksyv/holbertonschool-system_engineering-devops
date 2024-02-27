@@ -1,0 +1,31 @@
+https://github.com/ksyv/holbertonschool-system_engineering-devops/blob/main/web_infrastructure_design/0-simple_web_stack.png
+
+- What a server is?
+A server is a computer hardware or software that provides services to other computers (the clients).
+
+- What is the role of the domain name?
+Domaine name is a human word or sentence alias for remember an ip adress. In this example, the domain name www.foobar.com is easier to recognize and remember than 8.8.8.8. This traduction are mapped in the Domain Name System (DNS)
+
+- What type of DNS record www is in www.foobar.com?
+This is an A record. We store host name and his IPv4 corresponding.
+
+- What is the role of the web server?
+The web server receives a user request (via HTTP or HTTPS) and responds with the content of the requested resource or an error messsage.
+
+- What is the role of the application server.
+Application server is necessary to have a dynamic website whose response will adapt to the user's request. (For example if user identification is necessary or specific data search). Without it, the website is static and can only return a fixed page which will remain the same for each user and for each request.
+
+- What is the role of the database.
+To maintain a collection of organized information that can easily be accessed, managed and updated, and for to adapt the response to the user's request by sending him back the appropriate data
+
+- What is the server using to communicate with the computer of the user requesting the website
+Communication between the client and the server occurs over the internet network through the TCP/IP protocol.
+
+- SPOF
+If one of the component of this infrastructure down, the entire site would be down.
+
+- Downtime when maintenance needed.
+When we need to run some maintenance checks on any component, they have to be put down or the server has to be turned off cause there is only one server.
+
+- Cannot scale if too much incoming traffic.
+Just one server contains the required components. The server can quickly run out of resources or slow down when it starts receiving a lot of requests.
