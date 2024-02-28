@@ -1,0 +1,30 @@
+https://github.com/ksyv/holbertonschool-system_engineering-devops/blob/main/web_infrastructure_design/1-distributed_web_infrastructure.png
+
+- For every additional element, why you are adding it?
+One more sever for to provide solutions to the problems of high traffic and many SPOFs
+Load balancer to distributes traffic volum to each server
+
+- What distribution algorithm your load balancer is configured with and how it works
+The most used algorithm with HAProxy is rounRobin, which selects servers in a rotating manner, according to their weight.
+
+- Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+The load balancer here uses an Active-Active setup so that the loads are fairly distributed between the two servers, and thus the system is fluid and not overloaded.
+An active-passive setup would have used the first server while the second is on stand-by, ready to take over in the event of a problem on the first (the roles are then reversed between active and passive).
+
+- How a database Primary-Replica (Master-Slave) cluster works
+Database designed in Master/Slave mode to ensure consistency between redundant resources.
+A Primary-Replica setup configures one server to act as the Primary server and the other server to act as a Replica of the Primary server. 
+
+- What is the difference between the Primary node and the Replica node in regard to the application
+The master(primary) database is regarded as the authoritative source (read/write requests), the slave (replica) databases are synchronized to it.
+
+- Where are SPOF
+If one server (and its contents) goes down, the other takes over. Heavy traffic is also regulated (but not infinitely).
+Now, if the server that contains the Load balancer crashes, the system is in danger.
+
+- Security issues (no firewall, no HTTPS)
+The data transmitted over the network isn't encrypted using an SSL certificate. Anyone can intercept and read them.
+There is no way of blocking unauthorized IPs since there's no firewall installed on any server. 
+
+- No monitoring.
+We have no way of knowing the status of each server since they're not being monitored.
