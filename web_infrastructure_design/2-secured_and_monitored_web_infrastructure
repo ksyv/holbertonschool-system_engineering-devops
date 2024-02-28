@@ -1,0 +1,30 @@
+https://github.com/ksyv/holbertonschool-system_engineering-devops/blob/main/web_infrastructure_design/2-secured_and_monitored_web_infrastructure.png
+
+- For every additional element, why you are adding it
+Add FireWall to Load Balancer, because load balancer is the gateway between user and server, 
+Add Firewall to each Server to protect it
+Install SSL certificate to secure information between site and user, redirect HTTP port to HTTPS port for encrypting data.
+Add a tool monitor for each server.
+
+- What are firewalls for
+Protect the network from unwanted and unauthorized users by acting as an intermediary between the internal network and the external network
+
+- Why is the traffic served over HTTPS
+The SSL certificate is for encrypting the traffic between the web servers and the external network. use 443 port.
+
+- What monitoring is used for
+ Monitoring is a set of tool to use for analysing the performance and operations of the servers, and alert administrator in problem case. 
+- How the monitoring tool is collecting data
+Evalue every unit in the infrastructure, consider which work metrics and resource metrics are reasonably available, and collect them all.
+
+- Explain what to do if you want to monitor your web server QPS
+Install the tool Sumologic to monitor the disk I/O, MySql, Memory, Network, CPU
+
+- Why terminating SSL at the load balancer level is an issue
+SSL guarantees the security of data transported by encryption
+
+- Why having only one MySQL server capable of accepting writes is an issue
+If the server that contains this database fails, it is no longer possible to write or update the data, only to read it.
+
+- Why having servers with all the same components (database, web server and application server) might be a problem
+The components contend for resources on the server like CPU, Memory, I/O, etc., which can lead to poor performance and also make it difficult to locate the source of the problem
